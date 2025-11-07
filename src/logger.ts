@@ -10,9 +10,9 @@ import { JSONFormatter } from "./formatters/formatters.ts";
 
 /* Implementations */
 
-class Logger<F, W> implements ILogger {
+class Logger<LogMessageFormatType> implements ILogger {
 
-	constructor(private writer: ILogWriter<W>, private formatter: ILogMessageFormatter<F>) {
+	constructor(private writer: ILogWriter<LogMessageFormatType>, private formatter: ILogMessageFormatter<LogMessageFormatType>) {
 
 	};
 
@@ -32,23 +32,20 @@ class Logger<F, W> implements ILogger {
 
 	debug(message: string, metadata?: IMetadata) {
 		let logMessage: ILogMessage = this.generateLogMessage("debug", message, metadata)
-		// Now you're supposed to pass it to the FORMATTER, which will output as a certain type (generic), 
-		this.writer.write(logMessage);
+		let formattedLogMessage: LogMessageFormatType = this.formatter.format(logMessage);
+		this.writer.write(formattedLogMessage);
 	};
 
 	warn(message: string, metadata?: IMetadata) {
 		let logMessage: ILogMessage = this.generateLogMessage("warn", message, metadata)
-		this.writer.write(logMessage);
 	};
 
 	info(message: string, metadata?: IMetadata) {
 		let logMessage: ILogMessage = this.generateLogMessage("info", message, metadata)
-		this.writer.write(logMessage);
 	};
 
 	error(message: string, metadata?: IMetadata) {
 		let logMessage: ILogMessage = this.generateLogMessage("error", message, metadata)
-		this.writer.write(logMessage);
 	};
 };
 

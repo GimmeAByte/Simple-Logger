@@ -3,8 +3,8 @@ import { LogLevel } from "../types/types.ts";
 // Interface definitions
 
 // Use a generic for formatter types so that you can pass in the return type of the formatter's .format() method in the implementation.
-export interface ILogMessageFormatter<F> {
-	format(logMessage: ILogMessage): F;
+export interface ILogMessageFormatter<LogMessageFormatType> {
+	format(logMessage: ILogMessage): LogMessageFormatType;
 };
 
 export interface IMetadata {
@@ -25,6 +25,6 @@ export interface ILogMessage {
 	timestamp: string;
 };
 
-export interface ILogWriter<W> {
-	write(logMessage: W): void;
+export interface ILogWriter<LogMessageFormatType> {
+	write(logMessage: LogMessageFormatType): void;
 };
