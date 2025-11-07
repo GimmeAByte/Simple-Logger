@@ -49,5 +49,8 @@ class Logger<LogMessageFormatType> implements ILogger {
 	};
 };
 
-// export a factory function that invokes a new logger with a user-specified type of writer. 
+// Export a factory function that invokes a new logger with a user-specified type of writer. 
 
+export function createLogger<T>(writer: ILogWriter<T>, formatter: ILogMessageFormatter<T>): Logger<T> {
+	return new Logger(writer, formatter);
+};
