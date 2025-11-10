@@ -1,12 +1,12 @@
 // Import interfaces and types
 
-import { ILogMessageFormatter, IMetadata, ILogger, ILogMessage, ILogWriter } from "./interfaces/interfaces.ts"
-import { LogLevel } from "./types/types.ts";
+import { ILogMessageFormatter, IMetadata, ILogger, ILogMessage, ILogWriter } from "./interfaces/interfaces.js"
+import { LogLevel } from "./types/types.js";
 
 // Import implementations
 
-import { StdoutLogWriter } from "./writers/writers.ts";
-import { JSONFormatter } from "./formatters/formatters.ts";
+import { StdoutLogWriter } from "./writers/writers.js";
+import { JSONFormatter } from "./formatters/formatters.js";
 
 /* Implementations */
 

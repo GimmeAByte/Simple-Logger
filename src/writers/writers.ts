@@ -1,4 +1,4 @@
-import { ILogWriter, ILogMessage } from "../interfaces/interfaces.ts";
+import { ILogWriter, ILogMessage } from "../interfaces/interfaces.js";
 
 // Log writers
 

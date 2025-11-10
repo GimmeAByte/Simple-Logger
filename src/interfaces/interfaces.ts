@@ -1,4 +1,4 @@
-import { LogLevel } from "../types/types.ts";
+import { LogLevel } from "../types/types.js";
 
 // Interface definitions
 
